@@ -8,13 +8,19 @@ Class Dom {
         }
     }
     function punish (Sub $sub){
-        if ($sub.isBad || ($sub.isGood && $sub.likesIt)){
-            return true;
+        if ($sub.isGood && $sub.likesIt){
+            return 1;
+        }
+        else{
+          return 0;
         }
     }
-    function reward (Sub $sub, LastPun $lastPunishment){
-        if ($sub.isGood || $lastPunishment.wasTooHarsh){
-            return true;
+    function reward (Sub $sub, Punishment $punishment){
+        if ($sub.isGood || $punishment.wasTooHarsh){
+            return 1;
+        }
+        else{
+          return 0;
         }
     }
 
